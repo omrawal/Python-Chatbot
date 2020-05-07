@@ -9,7 +9,7 @@ import random
 # import datetime
 
 
-def rock():
+def rock():             #if user selects rock than select random input for computer
     global USER_CHOICE
     global COMP_CHOICE
     USER_CHOICE = 'rock'
@@ -17,7 +17,7 @@ def rock():
     result(USER_CHOICE, COMP_CHOICE)
 
 
-def paper():
+def paper():            #if user selects paper than select random input for computer
     global USER_CHOICE
     global COMP_CHOICE
     USER_CHOICE = 'paper'
@@ -25,7 +25,7 @@ def paper():
     result(USER_CHOICE, COMP_CHOICE)
 
 
-def scissor():
+def scissor():          #if user selects scissor than select random input for computer
     global USER_CHOICE
     global COMP_CHOICE
     USER_CHOICE = 'scissor'
@@ -33,7 +33,7 @@ def scissor():
     result(USER_CHOICE, COMP_CHOICE)
 
 
-def reset():
+def reset():            #make score of both user and computer as zero and restart game
         global USER_SCORE
         global COMP_SCORE
         USER_SCORE = 0
@@ -41,18 +41,18 @@ def reset():
         result("rock", "rock")
 
 
-def choice_to_number(choice):
+def choice_to_number(choice):                       #conversion of choice to number for easy of programing
         rps = {'rock': 0, 'paper': 1, 'scissor': 2}
         return rps[choice]
 
-def number_to_choice(number):
+def number_to_choice(number):                       #conversion of number to choice for easy of programing
     rps = {0: 'rock', 1: 'paper', 2: 'scissor'}
     return rps[number]
 
-def random_computer_choice():
+def random_computer_choice():                       #function to select random choice
     return random.choice(['rock', 'paper', 'scissor'])
 
-def result(human_choice, comp_choice):
+def result(human_choice, comp_choice):              #mainframe of rockpaperscissor game
     global USER_SCORE
     global COMP_SCORE
     global window1
@@ -100,7 +100,7 @@ def result(human_choice, comp_choice):
             run()
 
 
-def createframe(s):
+def createframe(s):                     #frame creation
     window = Tk()
     window.title(s)
     window.geometry("500x700")
@@ -109,7 +109,7 @@ def createframe(s):
 
 
 
-def rpsclicked(win_to_dest):
+def rpsclicked(win_to_dest):            #executed chen RockPaperScissor button is clicked
     win_to_dest.destroy()
     global window1
     window1 = createframe("Rock Paper Scissors Game")
@@ -151,7 +151,7 @@ def rpsclicked(win_to_dest):
 
     window1.mainloop()
 
-def hclicked(txt, TXT):
+def hclicked(txt, TXT):                     # executed when listen is clicked no chatbot only text to speech
     language = "en"
     output = gTTS(text=txt, lang=language, slow=False)
     output.save("v1.mp3")
@@ -161,7 +161,7 @@ def hclicked(txt, TXT):
     pass
 
 
-def hclickedchat(txt, TXT):
+def hclickedchat(txt, TXT):                 # real chatbot code 
     language = "en"
     q = open("questions.txt", 'r')
     a = open("answers.txt", 'r')
@@ -177,7 +177,7 @@ def hclickedchat(txt, TXT):
             flag = 1
             answer = al[i]
             break
-    if(flag != 1):
+    if(flag != 1):                          # if no match than say default of command not recognized
         answer = al[-1]
     outp = gTTS(text=answer, lang=language, slow=False)
     outp.save("v2.mp3")
@@ -187,12 +187,12 @@ def hclickedchat(txt, TXT):
     TXT.delete(0, END)
     pass
 
-def homeclicked(win_to_dest):
+def homeclicked(win_to_dest):               # toggle effect
     win_to_dest.destroy()
     run()
 
 
-def gttsclicked(win_to_dest):
+def gttsclicked(win_to_dest):               # mainframe of chatbot
     win_to_dest.destroy()
     window = createframe("Hermione")
     wq = Label(window, bg="ivory", fg="darkgreen", text="Enter the note: ")
@@ -220,7 +220,7 @@ def gttsclicked(win_to_dest):
     pass
 
 
-def run():
+def run():                                          # function called to start the application so as to aid toggle effect
     Start_window = createframe("Tkinter Mobile")
     wq = Label(Start_window)
 
