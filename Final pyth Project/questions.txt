@@ -1,0 +1,14 @@
+hello
+name
+help 
+old
+language
+speak
+age
+real
+friend
+flirting
+hi
+bye
+go
+like
